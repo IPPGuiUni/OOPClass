@@ -16,7 +16,7 @@ public:
     void push_back(int val);
     void push_front(int val);
 
-    void Insert(int pos, int value);
+    void insert(int pos, int value);
     
     bool full() const;
 
