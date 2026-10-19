@@ -7,6 +7,8 @@ Vector::Vector(int capacity) : size(0), capacity(capacity) {
     data = new int[capacity];
     std::cout << "constructor " << this << std::endl;
 }
+//Constructer: capacity is the number you are setting up
+
 
 Vector::Vector(const Vector& other) : size(other.size), capacity(other.capacity) {
     std::cout << "copy constructor " << this << std::endl;
@@ -17,6 +19,9 @@ Vector::Vector(const Vector& other) : size(other.size), capacity(other.capacity)
         data[i] = other.data[i];
     }
 }   
+//Copy constructor: give the new vector with a separate array
+//Copying pointer = sharing vector
+
 
 
 Vector::~Vector() {
@@ -69,7 +74,16 @@ void Vector::allocateMemory(int new_capacity) {
 }
 
 int Vector::getSize() const{
-    
+    return size;
+}
+int Vector::getCapacity() const{
+    return capacity;
+}
+void Vector::clear() {
+    delete [] data; // deletes entire memory
+    size = 0;
+    data = new int[10];
+    capacity = 10;
 }
 void Vector::pop_back() {
     if (empty()) {
@@ -77,6 +91,14 @@ void Vector::pop_back() {
     }
     --size;
 }
+ void Vector::push_front(int val) {
+    if (size == capacity) {
+        capacity *= 2;
+    }
+
+    int* newdata = new int[0];
+
+     }
 
 
 int Vector::at(int index) const {
